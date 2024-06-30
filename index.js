@@ -216,7 +216,7 @@ app.post('/api/notes', (request, response) => {
         content: body.content,
         important: body.important || false,
         date: new Date(),
-        id: Math.floor(Math.random() * 10000).toString()
+        //id: Math.floor(Math.random() * 10000).toString()
     }
 
     notes = notes.concat(note)
@@ -234,7 +234,7 @@ const unknownEndpoint = (request, response) => {
 }
 app.use(unknownEndpoint)
 
-const PORT = process.env.PORT
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`)
+const APP_PORT = process.env.PORT
+app.listen(APP_PORT, () => {
+    console.log(`Server running on port ${APP_PORT}`)
 })
