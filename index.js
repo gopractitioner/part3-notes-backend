@@ -1,9 +1,14 @@
-const express = require('express')
-const app = express()
-const cors = require('cors')
+// import dotenv from 'dotenv';
 
-app.use(express.json())
-app.use(cors())
+// dotenv.config();
+require('dotenv').config()
+
+const express = require('express');
+const app = express();
+const cors = require('cors');
+
+app.use(express.json());
+app.use(cors());
 let notes = [
     {
         "id": "1",
@@ -211,7 +216,7 @@ app.post('/api/notes', (request, response) => {
         content: body.content,
         important: body.important || false,
         date: new Date(),
-        id: Math.floor(Math.random() * 10000).toString()
+        //id: Math.floor(Math.random() * 10000).toString()
     }
 
     notes = notes.concat(note)
@@ -229,8 +234,7 @@ const unknownEndpoint = (request, response) => {
 }
 app.use(unknownEndpoint)
 
-
-const PORT = 3001
+const PORT = process.env.PORT
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 })
