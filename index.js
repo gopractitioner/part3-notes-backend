@@ -1,10 +1,13 @@
-require('dotenv').config()
-const express = require('express')
-const app = express()
-const cors = require('cors')
+import dotenv from 'dotenv';
 
-app.use(express.json())
-app.use(cors())
+dotenv.config();
+
+const express = require('express');
+const app = express();
+const cors = require('cors');
+
+app.use(express.json());
+app.use(cors());
 let notes = [
     {
         "id": "1",
