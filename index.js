@@ -7,6 +7,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
+
 app.use(express.json());
 app.use(cors());
 let notes = [
@@ -185,6 +186,9 @@ let notes = [
         "date": "2024-06-26T12:47:42.010Z"
     }
 ]
+
+
+app.use(express.static('dist'))
 
 app.get('/', (request, response) => {
     response.send('<h1>Hello Notes!</h1>')
