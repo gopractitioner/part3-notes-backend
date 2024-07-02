@@ -14,11 +14,7 @@ const requestLogger = (request, response, next) => {
     console.log('---')
     next()
 }
-app.use(express.static('dist'))
-app.use(express.json());
-app.use(requestLogger)
 
-app.use(cors());
 let notes = [
     {
         "id": "1",
@@ -195,9 +191,12 @@ let notes = [
         "date": "2024-06-26T12:47:42.010Z"
     }
 ]
-
-
 app.use(express.static('dist'))
+
+app.use(express.json());
+app.use(requestLogger)
+
+app.use(cors());
 
 app.get('/', (request, response) => {
     response.send('<h1>Hello Notes!</h1>')
